@@ -1,12 +1,12 @@
-kubernetes的Headless Services
-1.什么是Headless Services
-Headless Services是一种特殊的service，其spec:clusterIP表示为None，这样在实际运行时就不会被分配ClusterIP。
+# kubernetes的Headless Services
+## 1.什么是Headless Services
+### Headless Services是一种特殊的service，其spec:clusterIP表示为None，这样在实际运行时就不会被分配ClusterIP。
 
-2.Headless Services使用场景（客户端负载）
-服务端负载：正常的service 下面挂的是Endpoints（podIP数组），通过iptables规则转发到实际的POD上
-客户端负载：Headless Services不会分配ClusterIP,而是将Endpoints（即podIP数组）返回，也就将服务端的所有节点地址返回，让客户端自行要通过负载策略完成负载均衡。
+## 2.Headless Services使用场景（客户端负载）
+### 服务端负载：正常的service 下面挂的是Endpoints（podIP数组），通过iptables规则转发到实际的POD上
+### 客户端负载：Headless Services不会分配ClusterIP,而是将Endpoints（即podIP数组）返回，也就将服务端的所有节点地址返回，让客户端自行要通过负载策略完成负载均衡。
 
-3.实践
+## 3.实践
 ```
 #nginx yaml
 [root@node1 yaml]#  cat  nginx.yaml
