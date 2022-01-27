@@ -7,6 +7,7 @@ Headless Services是一种特殊的service，其spec:clusterIP表示为None，�
 客户端负载：Headless Services不会分配ClusterIP,而是将Endpoints（即podIP数组）返回，也就将服务端的所有节点地址返回，让客户端自行要通过负载策略完成负载均衡。
 
 3.实践
+```
 #nginx yaml
 [root@node1 yaml]#  cat  nginx.yaml
 apiVersion: v1
@@ -61,3 +62,4 @@ Name:   nginx-demo.default.svc.cluster.local
 Address: 10.235.1.88
 Name:   nginx-demo.default.svc.cluster.local
 Address: 10.235.1.89
+```
